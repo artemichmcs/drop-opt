@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ДРОП ОПТ — кроссовки</title>
+<style>
+:root{--p:#A3FF00;--bg:#F5F5F7;--card:#fff;--tx:#0D0D0F;--tx2:#6B6B70;--bd:#E5E5EA;--hd:#0D0D0F;--err:#EF4444;--ok:#22C55E;--acc:#7C4DFF;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0D0D0F;--card:#1A1A1D;--tx:#F5F5F7;--tx2:#A1A1AA;--bd:#2A2A2E}}
+:root[data-theme="dark"]{--bg:#0D0D0F;--card:#1A1A1D;--tx:#F5F5F7;--tx2:#A1A1AA;--bd:#2A2A2E}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.4 -apple-system,"SF Pro Text","Segoe UI",Roboto,Arial,sans-serif}
+button,input,select{font:inherit;color:inherit}button{cursor:pointer}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--hd);color:#fff;display:flex;align-items:center;gap:12px;padding:12px 16px}
+.logo{font:italic 900 22px/1 "Arial Black",Impact,sans-serif;letter-spacing:-1px;text-transform:uppercase;flex:0 0 auto}
+.logo b{color:var(--p)}
+.search{flex:1;min-width:0;background:#1E1E22;border:1px solid #2A2A2E;color:#fff;border-radius:12px;padding:10px 14px}
+.ib{background:none;border:0;color:#fff;font-size:20px;position:relative;padding:4px}
+.badge{position:absolute;top:-4px;right:-6px;background:var(--p);color:#000;font-size:11px;font-weight:700;border-radius:10px;padding:1px 5px}
+main{max-width:1100px;margin:0 auto;padding:16px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px}
+.chip{border:1px solid var(--bd);background:var(--card);border-radius:20px;padding:8px 16px;white-space:nowrap;font-weight:600}
+.chip.on{background:var(--p);border-color:var(--p);color:#000}
+.bar{display:flex;gap:10px;margin:12px 0;align-items:center}
+.bar select{flex:1;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:10px}
+.bar label{display:flex;gap:6px;align-items:center;color:var(--tx2);white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+.card{background:var(--card);border-radius:16px;padding:10px;position:relative;cursor:pointer;border:1px solid var(--bd)}
+.img{aspect-ratio:1;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#ececef,#d9d9de);position:relative}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .img{background:linear-gradient(135deg,#2a2a2e,#1a1a1d)}}
+.img svg{width:82%}
+.disc{position:absolute;left:6px;bottom:6px;background:var(--err);color:#fff;font-size:12px;font-weight:700;border-radius:6px;padding:2px 6px}
+.br{color:var(--tx2);font-size:12px;margin-top:8px}.nm{font-weight:600;font-size:14px;min-height:38px}
+.pr{display:flex;align-items:baseline;gap:8px;margin-top:4px}.pr b{font-size:17px}.old{color:var(--tx2);text-decoration:line-through;font-size:13px}
+.fv{position:absolute;right:14px;top:14px;border:0;background:transparent;font-size:18px;z-index:2}
+.add{position:absolute;right:10px;bottom:10px;width:34px;height:34px;border-radius:50%;border:0;background:var(--p);font-size:16px}
+.btn{width:100%;border:0;border-radius:12px;padding:14px;font-weight:700;background:var(--p);color:#000;text-transform:uppercase;letter-spacing:.3px}
+.btn.dk{background:#0D0D0F;color:#fff}.btn.gh{background:transparent;border:1px solid var(--bd);color:var(--tx)}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:50;display:flex;visibility:hidden;opacity:0;transition:opacity .25s,visibility .25s;align-items:flex-end;justify-content:center}
+.ov.on{visibility:visible;opacity:1}.ov.on .sheet{transform:none}
+.sheet{background:var(--card);width:100%;max-width:520px;max-height:92%;overflow:auto;border-radius:20px 20px 0 0;transform:translateY(60px) scale(.98);transition:transform .35s cubic-bezier(.2,.9,.3,1);padding:18px 16px calc(18px + env(safe-area-inset-bottom,0px))}
+@media(min-width:700px){.ov{align-items:center}.sheet{border-radius:20px}}
+.sh{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-weight:700;font-size:18px}
+.sizes{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 16px}
+.sz{min-width:48px;padding:10px;border:1px solid var(--bd);background:var(--bg);border-radius:10px;font-weight:600}
+.sz.on{background:#0D0D0F;color:#fff;border-color:#0D0D0F}.sz:disabled{opacity:.35;text-decoration:line-through}
+.row{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--bd)}
+.row .img{width:64px;flex:0 0 64px;aspect-ratio:1}
+.qty{display:flex;align-items:center;gap:8px}.qty button{width:28px;height:28px;border-radius:8px;border:1px solid var(--bd);background:var(--bg)}
+.tot{display:flex;justify-content:space-between;padding:6px 0}.tot.big{font-weight:800;font-size:18px}
+.f{display:block;margin:10px 0}.f span{display:block;color:var(--tx2);font-size:12px;margin-bottom:4px}
+.f input,.f select{width:100%;padding:12px;border:1px solid var(--bd);border-radius:10px;background:var(--bg)}
+.f input.bad{border-color:var(--err)}
+.ok{text-align:center}.ok .c{width:64px;height:64px;border-radius:50%;border:3px solid var(--ok);color:var(--ok);display:grid;place-items:center;font-size:32px;margin:6px auto 12px}
+.empty{text-align:center;color:var(--tx2);padding:40px 0;grid-column:1/-1}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#0D0D0F;color:#fff;padding:12px 18px;border-radius:12px;z-index:99;opacity:0;pointer-events:none;transition:.3s;border:1px solid #2a2a2e}.toast.on{opacity:1;transform:translateX(-50%) translateY(-8px)}
+.note{background:var(--card);border:1px dashed var(--bd);border-radius:12px;padding:12px;color:var(--tx2);font-size:13px;margin-top:16px}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+@keyframes sh{to{background-position:-200% 0}}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.card{animation:up .45s cubic-bezier(.2,.8,.3,1) backwards;animation-delay:calc(min(var(--i,0),12)*45ms);transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(0,0,0,.12)}
+.img svg{transition:transform .4s}.card:hover .img svg{transform:scale(1.08) rotate(-3deg)}
+button{transition:transform .15s,background .2s,color .2s,opacity .2s}button:active{transform:scale(.93)}
+.chip,.sz{transition:all .2s}.sz.on{transform:scale(1.08)}.add:hover{transform:scale(1.15) rotate(8deg)}
+.row{animation:up .3s backwards}.empty{animation:up .4s backwards}
+.f input:focus,.f select:focus{outline:2px solid var(--p);outline-offset:1px}.f input.bad{animation:shake .35s}
+.ok .c{animation:pop .5s cubic-bezier(.2,1.6,.4,1)}
+.sk .img,.sk .br,.sk .nm{background:linear-gradient(90deg,var(--bd) 25%,var(--bg) 50%,var(--bd) 75%);background-size:200% 100%;animation:sh 1.2s infinite;border-radius:8px;color:transparent}
+.sk .br,.sk .nm{margin-top:8px;height:14px;min-height:0}.sk{animation:none;pointer-events:none}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">ДРОП <b>ОПТ</b></div>
+  <input class="search" id="q" placeholder="Поиск кроссовок…">
+  <button class="ib" id="favBtn" aria-label="Избранное">🤍</button><button class="ib" id="usrBtn" aria-label="Профиль">👤</button><button class="ib" id="cartBtn" aria-label="Корзина">🛒<span class="badge" id="cnt">0</span></button>
+</header>
+<main>
+  <div class="chips" id="chips"></div>
+  <div class="bar">
+    <select id="sort"><option value="pop">По популярности</option><option value="asc">Цена ↑</option><option value="desc">Цена ↓</option><option value="new">По новизне</option></select>
+    <label><input type="checkbox" id="sale"> Со скидкой</label>
+  </div>
+  <div class="grid" id="grid"></div>
+  <div class="note">Админ-панель: 👤 → «Админ-панель» (демо-код 1234). Данные хранятся в браузере.</div>
+</main>
+
+<div class="ov" id="ovP"><div class="sheet" id="shP"></div></div>
+<div class="ov" id="ovC"><div class="sheet" id="shC"></div></div>
+<div class="ov" id="ovA"><div class="sheet" id="shA"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+// ===== АССОРТИМЕНТ: замените на товары из канала =====
+const DEF=[
+{id:1,brand:"Nike",name:"Air Jordan 1 Retro High",price:6990,old:9990,sizes:[40,41,42,43,44,45],c:["#111","#fff"]},
+{id:2,brand:"Nike",name:"Air Max 90",price:7490,old:10990,sizes:[40,41,42,43],c:["#9aa0a6","#fff"]},
+{id:3,brand:"Nike",name:"Dunk Low Retro",price:6490,old:8290,sizes:[41,42,43,44],c:["#c1121f","#fff"]},
+{id:4,brand:"Nike",name:"Air Force 1 '07",price:5990,old:null,sizes:[40,41,42,43,44,45],c:["#f4f4f4","#ccc"]},
+{id:5,brand:"Jordan",name:"Jordan 4 Retro",price:15990,old:null,sizes:[41,42,43],c:["#1b1b1b","#c1121f"]},
+{id:6,brand:"ASICS",name:"Gel-NYC",price:8990,old:12990,sizes:[40,41,42,43,44],c:["#b8bcc4","#5b6470"]},
+{id:7,brand:"Adidas",name:"Campus 00s",price:8490,old:null,sizes:[40,41,42,43,44],c:["#2b2b2b","#fff"]},
+{id:8,brand:"New Balance",name:"530",price:6490,old:8990,sizes:[40,41,42,43,44,45],c:["#e8e8ec","#8a94a6"]},
+{id:9,brand:"Nike",name:"Air Max 97",price:10990,old:14990,sizes:[41,42,43],c:["#1e1e1e","#444"]},
+{id:10,brand:"Nike",name:"Air Max Plus",price:9490,old:12990,sizes:[42,43,44],c:["#3a2a1a","#c97a2b"]},
+{id:11,brand:"Nike",name:"Air Max 270",price:8990,old:null,sizes:[40,41,42,43,44],c:["#f2f2f2","#111"]}
+];
+// ======================================================
+const ld=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))||d}catch(e){return d}},sv=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){toast("Не хватило места в браузере")}};
+let PRODUCTS=ld("prods",DEF),ORDERS=ld("orders",[]),FAV=ld("fav",[]),favOn=false,aTab="d";
+const esc=v=>String(v).replace(/"/g,"&quot;");
+const $=s=>document.querySelector(s), fmt=n=>n.toLocaleString("ru-RU")+" ₽";
+let cat="Все",cart=[];
+try{cart=JSON.parse(localStorage.getItem("cart")||"[]")}catch(e){}
+const save=()=>{try{localStorage.setItem("cart",JSON.stringify(cart))}catch(e){};$("#cnt").textContent=cart.reduce((a,i)=>a+i.q,0)};
+const toast=t=>{const e=$("#toast");e.textContent=t;e.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove("on"),1800)};
+const shoe=c=>`<svg viewBox="0 0 200 110"><path d="M12 78c0-8 4-12 12-14l30-8 18-24c4-5 10-6 15-2l14 12c8 6 20 10 34 12 16 3 28 9 28 24v8c0 4-3 6-7 6H22c-6 0-10-4-10-10z" fill="${c[0]}"/><path d="M12 88h176v6c0 4-3 6-7 6H22c-6 0-10-4-10-10z" fill="${c[1]}"/><path d="M60 56l20 14M78 40l18 16" stroke="${c[1]}" stroke-width="4" stroke-linecap="round"/><path d="M70 74c20 4 60 4 96-8-10 12-30 20-60 18-14-1-28-4-36-10z" fill="${c[1]}" opacity=".85"/></svg>`;
+const pic=p=>p.img?`<img src="${p.img}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:12px">`:shoe(p.c);
+const disc=p=>p.old?Math.round((1-p.price/p.old)*100):0;
+
+function chips(){const b=["Все",...new Set(PRODUCTS.map(p=>p.brand))];
+ $("#chips").innerHTML=b.map(x=>`<button class="chip ${x==cat?"on":""}" data-b="${x}">${x}</button>`).join("")}
+function grid(){
+ const q=$("#q").value.trim().toLowerCase(),s=$("#sort").value;
+ let l=PRODUCTS.filter(p=>(cat=="Все"||p.brand==cat)&&(!q||(p.brand+" "+p.name).toLowerCase().includes(q))&&(!$("#sale").checked||p.old)&&(!favOn||FAV.includes(p.id)));
+ if(s=="asc")l.sort((a,b)=>a.price-b.price);if(s=="desc")l.sort((a,b)=>b.price-a.price);if(s=="new")l.sort((a,b)=>b.id-a.id);
+ $("#grid").innerHTML=l.length?l.map((p,i)=>`<div class="card" data-id="${p.id}" style="--i:${i}"><div class="img">${pic(p)}${p.old?`<span class="disc">-${disc(p)}%</span>`:""}</div><button class="fv" data-f="${p.id}">${FAV.includes(p.id)?"❤️":"🤍"}</button>
+ <div class="br">${p.brand}</div><div class="nm">${p.name}</div><div class="pr"><b>${fmt(p.price)}</b>${p.old?`<span class="old">${fmt(p.old)}</span>`:""}</div>
+ <button class="add" data-id="${p.id}" aria-label="Открыть">🛒</button></div>`).join(""):`<div class="empty"><div style="font-size:40px">🔍</div>Ничего не найдено<br>Попробуйте изменить запрос</div>`}
+
+function openP(id){const p=PRODUCTS.find(x=>x.id==id);let sel=null;
+ $("#shP").innerHTML=`<div class="sh"><span>${p.brand}</span><button class="ib" style="color:var(--tx)" data-x="P">✕</button></div>
+ <div class="img" style="margin-bottom:12px">${pic(p)}${p.old?`<span class="disc">-${disc(p)}%</span>`:""}</div>
+ <h2 style="margin:0 0 6px">${p.name}</h2><div class="pr"><b style="font-size:24px">${fmt(p.price)}</b>${p.old?`<span class="old">${fmt(p.old)}</span>`:""}</div>
+ <div style="color:var(--ok);margin:6px 0">В наличии</div>
+ <div style="font-weight:600;margin-top:10px">Размер</div>
+ <div class="sizes">${[...new Set([40,41,42,43,44,45,...p.sizes])].sort().map(s=>`<button class="sz" data-s="${s}" ${p.sizes.includes(s)?"":"disabled"}>${s}</button>`).join("")}</div>
+ <button class="btn" id="toCart">В корзину</button>`;
+ $("#ovP").classList.add("on");
+ $("#shP").onclick=e=>{const b=e.target.closest(".sz");if(b&&!b.disabled){sel=+b.dataset.s;document.querySelectorAll(".sz").forEach(x=>x.classList.toggle("on",x==b))}
+  if(e.target.id=="toCart"){if(!sel)return toast("Выберите размер");
+   const i=cart.find(c=>c.id==p.id&&c.s==sel);i?i.q++:cart.push({id:p.id,s:sel,q:1});save();toast("Товар добавлен в корзину");fly(e.target);$("#ovP").classList.remove("on")}}}
+
+function openC(){
+ const it=cart.map(c=>({...c,p:PRODUCTS.find(p=>p.id==c.id)})),sum=it.reduce((a,c)=>a+c.p.price*c.q,0);
+ $("#shC").innerHTML=`<div class="sh"><span>Корзина</span><button class="ib" style="color:var(--tx)" data-x="C">✕</button></div>`+
+ (it.length?it.map((c,i)=>`<div class="row"><div class="img">${pic(c.p)}</div><div style="flex:1"><div style="font-weight:600">${c.p.name}</div>
+ <div style="color:var(--tx2);font-size:13px">Размер: ${c.s}</div><div class="qty"><button data-m="${i}">−</button>${c.q}<button data-a="${i}">+</button></div></div>
+ <div style="font-weight:700">${fmt(c.p.price*c.q)}</div></div>`).join("")+
+ `<div class="tot" style="margin-top:10px"><span>Товары</span><span>${fmt(sum)}</span></div><button class="btn" id="go">Оформить заказ</button>`
+ :`<div class="empty">🛒<br>Здесь пока пусто<br>Добавьте товары в корзину</div>`);
+ $("#ovC").classList.add("on");
+ $("#shC").onclick=e=>{const t=e.target;
+  if(t.dataset.a!=null){cart[t.dataset.a].q++;save();openC()}
+  if(t.dataset.m!=null){const i=+t.dataset.m;--cart[i].q<=0&&cart.splice(i,1);save();openC()}
+  if(t.id=="go")checkout(sum)}}
+
+function checkout(sum){const dl=500;
+ $("#shC").innerHTML=`<div class="sh"><span>Оформление заказа</span><button class="ib" style="color:var(--tx)" data-x="C">✕</button></div>
+ <label class="f"><span>Получатель</span><input id="n" placeholder="Имя Фамилия"></label>
+ <label class="f"><span>Телефон</span><input id="t" placeholder="+7 (999) 123-45-67" inputmode="tel"></label>
+ <label class="f"><span>Доставка</span><select><option>СДЭК</option></select></label>
+ <label class="f"><span>Город</span><input id="c" placeholder="Москва"></label>
+ <label class="f"><span>Пункт выдачи</span><input id="pv" placeholder="СДЭК — ул. Примерная, 10"></label>
+ <div class="tot"><span>Товары</span><span>${fmt(sum)}</span></div><div class="tot"><span>Доставка</span><span>${fmt(dl)}</span></div>
+ <div class="tot big"><span>Итого</span><span>${fmt(sum+dl)}</span></div><button class="btn" id="ord">Оформить заказ</button>`;
+ $("#shC").onclick=e=>{if(e.target.id!="ord")return;let ok=true;
+  ["n","t","c","pv"].forEach(k=>{const el=$("#"+k),bad=el.value.trim().length<2;el.classList.toggle("bad",bad);if(bad)ok=false});
+  if(!ok)return toast("Заполните все поля");
+  const num="#"+(10000+Math.floor(Math.random()*9000));ORDERS.unshift({num,name:$("#n").value,phone:$("#t").value,city:$("#c").value,pv:$("#pv").value,sum:sum+dl,status:"Новый",date:new Date().toLocaleString("ru-RU",{dateStyle:"short",timeStyle:"short"}),items:cart.map(c=>({n:PRODUCTS.find(p=>p.id==c.id).name,s:c.s,q:c.q}))});sv("orders",ORDERS);cart=[];save();
+  $("#shC").innerHTML=`<div class="ok"><div class="c">✓</div><h2 style="margin:0">Заказ оформлен!</h2><p style="color:var(--tx2)">Заказ ${num}<br>Мы передали заказ в обработку.</p>
+  <button class="btn" data-x="C">Вернуться в каталог</button></div>`;$("#shC").onclick=null;
+  $("#shC").querySelector(".btn").onclick=()=>$("#ovC").classList.remove("on")}}
+
+document.addEventListener("click",e=>{
+ const f=e.target.dataset.f;if(f){const i=+f;FAV=FAV.includes(i)?FAV.filter(x=>x!=i):[...FAV,i];sv("fav",FAV);if(favOn)grid();else{e.target.textContent=FAV.includes(i)?"❤️":"🤍";e.target.animate([{transform:"scale(.6)"},{transform:"scale(1.6)"},{transform:"scale(1)"}],{duration:350})}return}
+ const x=e.target.dataset.x;if(x)$("#ov"+x).classList.remove("on");
+ if(e.target.classList.contains("ov"))e.target.classList.remove("on");
+ const ch=e.target.closest(".chip");if(ch){cat=ch.dataset.b;chips();grid()}
+ const cd=e.target.closest(".card");if(cd&&cd.dataset.id)openP(cd.dataset.id)});
+$("#cartBtn").onclick=openC;$("#usrBtn").onclick=openU;$("#favBtn").onclick=e=>{favOn=!favOn;e.currentTarget.textContent=favOn?"❤️":"🤍";grid()};
+const ST=["Новый","Подтверждён","Собирается","Передан в СДЭК","Доставлен","Отменён"],SC={"Новый":"#3b82f6","Подтверждён":"#7C4DFF","Собирается":"#F59E0B","Передан в СДЭК":"#0ea5e9","Доставлен":"#22C55E","Отменён":"#EF4444"};
+const X=`<button class="ib" style="color:var(--tx)" data-x="A">✕</button>`;
+const pill=s=>`<span style="border:1px solid ${SC[s]};color:${SC[s]};border-radius:10px;padding:2px 8px;font-size:12px;white-space:nowrap">${s}</span>`;
+const oRow=o=>`<div class="row" style="justify-content:space-between"><div><b>${o.num}</b> ${o.name}<div style="color:var(--tx2);font-size:12px">${o.date}</div></div><div style="text-align:right"><b>${fmt(o.sum)}</b><br>${pill(o.status)}</div></div>`;
+function openU(){$("#shA").innerHTML=`<div class="sh"><span>Мои заказы</span>${X}</div>`+(ORDERS.length?ORDERS.map(oRow).join(""):`<div class="empty">Заказов пока нет</div>`)+`<button class="btn gh" id="adm" style="margin-top:14px">Админ-панель</button>`;
+ $("#ovA").classList.add("on");$("#shA").onclick=e=>{
+  if(e.target.id=="adm")$("#shA").innerHTML=`<div class="sh"><span>Вход в админ-панель</span>${X}</div><label class="f"><span>Код доступа (демо: 1234)</span><input id="pin" type="password" inputmode="numeric"></label><button class="btn" id="pgo">Войти</button>`;
+  if(e.target.id=="pgo"){const i=$("#pin");if(i.value=="1234")openA("d");else{i.classList.remove("bad");void i.offsetWidth;i.classList.add("bad");toast("Неверный код")}}}}
+function openA(t){aTab=t||aTab;
+ const nav=[["d","Дашборд"],["p","Товары"],["o","Заказы"]].map(([k,l])=>`<button class="chip ${k==aTab?"on":""}" data-t="${k}">${l}</button>`).join("");let b="";
+ if(aTab=="d"){const rev=ORDERS.filter(o=>o.status!="Отменён").reduce((a,o)=>a+o.sum,0),td=new Date().toLocaleDateString("ru-RU");
+  b=`<div class="grid" style="grid-template-columns:1fr 1fr">${[["Новые заказы",ORDERS.filter(o=>o.status=="Новый").length],["Заказов сегодня",ORDERS.filter(o=>o.date.startsWith(td)).length],["Выручка",fmt(rev)],["Товары",PRODUCTS.length]].map(([l,v])=>`<div class="card" style="cursor:default;background:#0D0D0F;color:#fff"><div style="color:#A1A1AA;font-size:12px">${l}</div><b style="font-size:22px">${v}</b></div>`).join("")}</div><h3>Последние заказы</h3>`+(ORDERS.slice(0,4).map(oRow).join("")||`<div class="empty">Нет заказов</div>`)}
+ if(aTab=="p")b=`<button class="btn" data-e="new">+ Добавить товар</button>`+PRODUCTS.map(p=>`<div class="row"><div class="img">${pic(p)}</div><div style="flex:1"><b>${p.name}</b><div style="color:var(--tx2);font-size:12px">${p.brand} · ${fmt(p.price)}</div></div><button class="chip" data-e="${p.id}">✎</button><button class="chip" data-d="${p.id}">🗑</button></div>`).join("");
+ if(aTab=="o")b=ORDERS.map((o,i)=>`${oRow(o)}<div style="font-size:13px;color:var(--tx2);padding:6px 0">${o.phone} · ${o.city}, ${o.pv}<br>${o.items.map(x=>x.n+" ("+x.s+") ×"+x.q).join("; ")}</div><select data-st="${i}" style="width:100%;padding:8px;border-radius:10px;background:var(--bg);border:1px solid var(--bd);color:var(--tx)">${ST.map(s=>`<option ${s==o.status?"selected":""}>${s}</option>`).join("")}</select>`).join("")||`<div class="empty">Заказов нет</div>`;
+ $("#shA").innerHTML=`<div class="sh"><span>Админ</span>${X}</div><div class="chips" style="margin-bottom:12px">${nav}</div>`+b;$("#ovA").classList.add("on");
+ $("#shA").onclick=e=>{const d=e.target.dataset;if(d.t)openA(d.t);if(d.e)form(d.e);if(d.d){const p=PRODUCTS.find(x=>x.id==d.d);$("#shA").innerHTML=`<div class="sh"><span>Удалить товар?</span>${X}</div><p style="color:var(--tx2)">${p.name} будет удалён из каталога.</p><button class="btn gh" data-t="p" style="margin-bottom:8px">Отмена</button><button class="btn" style="background:var(--err);color:#fff" data-y="${p.id}">Удалить</button>`}
+  if(d.y){PRODUCTS=PRODUCTS.filter(p=>p.id!=d.y);sv("prods",PRODUCTS);chips();grid();openA("p")}};
+ $("#shA").onchange=e=>{if(e.target.dataset.st!=null){ORDERS[e.target.dataset.st].status=e.target.value;sv("orders",ORDERS);openA()}}}
+function form(id){const p=PRODUCTS.find(x=>x.id==id)||{name:"",brand:"Nike",price:"",old:"",sizes:[40,41,42,43,44]};
+ $("#shA").innerHTML=`<div class="sh"><span>${id=="new"?"Добавление товара":"Редактирование"}</span>${X}</div>`+[["fn","Название",p.name],["fb","Бренд",p.brand],["fp","Цена",p.price],["fo","Старая цена",p.old||""],["fs","Размеры через запятую",p.sizes.join(",")]].map(([i,l,v])=>`<label class="f"><span>${l}</span><input id="${i}" value="${esc(v)}"></label>`).join("")+`<label class="f"><span>Фото</span><input id="fi" type="file" accept="image/*"></label><button class="btn" id="fsave">Сохранить</button>`;
+ $("#shA").onclick=e=>{if(e.target.id!="fsave")return;
+  const go=img=>{const n={...p,id:p.id||Date.now(),name:$("#fn").value.trim(),brand:$("#fb").value.trim()||"Nike",price:+$("#fp").value,old:+$("#fo").value||null,sizes:$("#fs").value.split(",").map(Number).filter(Boolean),c:p.c||["#222","#A3FF00"]};if(img)n.img=img;
+   if(!n.name||!n.price)return toast("Укажите название и цену");
+   id=="new"?PRODUCTS.unshift(n):PRODUCTS[PRODUCTS.findIndex(x=>x.id==p.id)]=n;sv("prods",PRODUCTS);chips();grid();openA("p")};
+  const f=$("#fi").files[0];if(!f)return go();
+  const im=new Image();im.onload=()=>{const k=Math.min(1,600/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=im.width*k;c.height=im.height*k;c.getContext("2d").drawImage(im,0,0,c.width,c.height);go(c.toDataURL("image/jpeg",.8))};im.src=URL.createObjectURL(f)}}
+$("#q").oninput=grid;$("#sort").onchange=grid;$("#sale").onchange=grid;
+chips();save();$("#grid").innerHTML=Array(6).fill('<div class="card sk"><div class="img"></div><div class="br">&nbsp;</div><div class="nm"></div></div>').join("");setTimeout(grid,700);
+function fly(el){const a=el.getBoundingClientRect(),b=$("#cartBtn").getBoundingClientRect(),d=document.createElement("div");
+ d.style.cssText=`position:fixed;z-index:120;width:18px;height:18px;border-radius:50%;background:var(--p);left:${a.left+a.width/2}px;top:${a.top+a.height/2}px;pointer-events:none`;document.body.appendChild(d);
+ d.animate([{transform:"translate(0,0) scale(1)"},{transform:`translate(${b.left-a.left-a.width/2+10}px,${b.top-a.top-a.height/2+10}px) scale(.3)`,opacity:.4}],{duration:650,easing:"cubic-bezier(.5,0,.8,.4)"}).onfinish=()=>{d.remove();$("#cnt").animate([{transform:"scale(1)"},{transform:"scale(1.8)"},{transform:"scale(1)"}],{duration:350})}}
+</script>
+</body>
+</html>
